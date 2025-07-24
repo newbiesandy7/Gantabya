@@ -1,0 +1,174 @@
+/* css/navbar_custom.css */
+
+:root {
+    --primary-color: #6D9773;          /* Muted Green */
+    --dark-accent: #0C3B2E;             /* Dark Forest Green */
+    --button-color: #BB8A52;            /* Earthy Brown */
+    --highlight-color: #FFBA00;         /* Vibrant Yellow */
+    --text-color: #333; /* Used for general text, though not heavily in this navbar */
+    --background-light: #f8f8f8; /* Not directly used for navbar, but kept for context */
+    --container-bg: #fff; /* Used for nav-link text and search input background */
+    --border-color: #e0e0e0; /* Not directly used for navbar, but kept for context */
+}
+
+.navbar {
+    background-color: var(--dark-accent) !important; /* Ensure dark background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    padding: 0.5rem 1rem; /* Adjust padding for the entire navbar */
+}
+
+.navbar-brand {
+    padding: 0.2rem 0; /* Adjust padding for the logo */
+}
+
+.navbar-brand img {
+    width: 60px; /* Slightly smaller logo for better integration */
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.08); /* Slight zoom on hover */
+}
+
+.navbar-nav .nav-link {
+    color: var(--container-bg);
+    font-family: "poppins" , sans-serif;
+    font-weight: 700 !important;
+    transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+    padding: 0.8rem 1.2rem; /* Generous padding for better click area */
+    margin: 0 5px; /* Space between nav items */
+    border-radius: 8px; /* Rounded corners for buttons */
+    position: relative; /* For potential active indicator */
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--highlight-color) !important; /* Vibrant Yellow on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+}
+
+/* Active Nav Link Styling */
+.navbar-nav .nav-link.active {
+    color: var(--highlight-color) !important; /* Vibrant Yellow for active link */
+    background-color: var(--primary-color) !important; /* Muted Green background for active */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+}
+
+/* Specific styling for the 'Login | Signup' link if it needs a distinct button-like look */
+.navbar-nav .nav-link.auth-link {
+    background-color: var(--button-color); /* Earthy Brown for login button */
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    margin-left: 15px; /* Space from search bar */
+}
+
+.navbar-nav .nav-link.auth-link:hover {
+    background-color: #A37546; /* Darker brown on hover */
+    color:white !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4); /* Lighter border for toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Search Form */
+.d-flex.me-3 .form-control {
+    border: 1px solid var(--primary-color); /* Green border */
+    background-color: white;
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+}
+
+.d-flex.me-3 .form-control::placeholder {
+    color: #888;
+}
+
+.btn-outline-success {
+    color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--highlight-color);
+    color: var(--dark-accent); /* Dark text on hover */
+    border-color: var(--highlight-color);
+}
+
+/* Dropdown specific styles */
+.navbar-nav .dropdown-menu {
+    background-color: var(--dark-accent); /* Match navbar background */
+    border: 1px solid var(--primary-color); /* Subtle green border */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    margin-top: 5px; /* Small gap between nav link and dropdown */
+    border-radius: 8px; /* Consistent rounded corners */
+}
+
+.navbar-nav .dropdown-item {
+    color: var(--container-bg); /* Light text for dropdown items */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0.8rem 1.5rem;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+    background-color: var(--primary-color); /* Primary color background on hover */
+    color: var(--highlight-color); /* Highlight text on hover */
+}
+
+/* User profile icon and name */
+.navbar-nav .nav-link .fa-user {
+    margin-right: 8px; /* Slightly more space */
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--dark-accent); /* Keep background for collapsed menu */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center; /* Center nav items when collapsed */
+    }
+    .navbar-nav .nav-item {
+        margin: 5px 0; /* Vertical spacing for stacked items */
+    }
+    .navbar-nav .nav-link {
+        display: block; /* Make links take full width */
+    }
+    .d-flex.align-items-center {
+        flex-direction: column; /* Stack search and login vertically */
+        width: 100%;
+    }
+    .d-flex.me-3 {
+        width: 90%;
+        margin-right: 0 !important;
+        margin-bottom: 10px; /* Space between search and login */
+    }
+    .d-flex.me-3 .form-control,
+    .d-flex.me-3 .btn-outline-success {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .navbar-nav .nav-link.auth-link {
+        margin-left: 0;
+        width: 90%;
+        margin-top: 10px;
+    }
+}

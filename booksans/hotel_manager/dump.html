@@ -1,0 +1,22 @@
+<!-- <label>Select Background Type:</label>
+        <select name="background_type" id="bgType">
+          <option value="color" <?php echo (isset($hotel_settings['background_type']) && $hotel_settings['background_type'] == 'color' ? 'selected' : ''); ?>>Color</option>
+          <option value="image" <?php echo (isset($hotel_settings['background_type']) && $hotel_settings['background_type'] == 'image' ? 'selected' : ''); ?>>Image</option>
+        </select> -->
+
+        <!-- <div id="bgColorInput" style="display: <?php echo (isset($hotel_settings['background_type']) && $hotel_settings['background_type'] == 'color' ? 'block' : 'none'); ?>;">
+          <label>Pick Background Color:</label>
+          <input type="color" name="background_color" value="<?php echo htmlspecialchars(isset($hotel_settings['background_value']) ? $hotel_settings['background_value'] : '#ffffff'); ?>" />
+        </div>
+
+        <div id="bgImageInput" style="display: <?php echo (isset($hotel_settings['background_type']) && $hotel_settings['background_type'] == 'image' ? 'block' : 'none'); ?>;">
+          <label>Upload Background Image:</label>
+          <input type="file" name="background_image" accept="image/*" />
+          <?php if (isset($hotel_settings['background_type']) && $hotel_settings['background_type'] == 'image' && isset($hotel_settings['background_value']) && $hotel_settings['background_value']): ?>
+            <p>Current Image: <img src="../images/<?php echo htmlspecialchars($hotel_settings['background_value']); ?>" style="max-width: 100px; height: auto;" /></p>
+          <?php endif; ?>
+        </div>
+
+
+        <label>Select Accent Color (for buttons/highlights):</label>
+        <input type="color" name="accent_color" id="accentColorPicker" value="<?php echo htmlspecialchars(isset($hotel_settings['accent_color']) ? $hotel_settings['accent_color'] : '#f7c948'); ?>" />

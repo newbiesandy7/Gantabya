@@ -1,0 +1,204 @@
+
+        /* Color Palette */
+        :root {
+            --primary-color: #6D9773;       /* Muted Green */
+            --dark-accent: #0C3B2E;         /* Dark Forest Green */
+            --button-color: #BB8A52;        /* Earthy Brown */
+            --highlight-color: #FFBA00;     /* Vibrant Yellow */
+            --text-color: #333;
+            --background-light: #f8f8f8;
+            --container-bg: #fff;
+            --border-color: #e0e0e0;
+        }
+
+       
+        .container-blog {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+    
+    
+       
+        /* Slider Specific CSS */
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden; /* Hide posts that are not active */
+            margin-bottom: 30px;
+        }
+
+        .slider-container {
+            display: flex; /* Arrange posts in a row */
+            transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+        }
+
+        .post-item {
+            flex: 0 0 100%; /* Each post takes 100% width of the slider-wrapper */
+            width: 100%; /* Ensure full width */
+            background-color: #F8FCF8; /* Very light green background for posts */
+            border: 1px solid #DCEEDA; /* Lighter green border */
+            padding: 25px;
+            box-sizing: border-box; /* Include padding in the width calculation */
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-right: 0; /* No margin between slides because flex handles it */
+            height: auto; /* Allow height to adjust based on content */
+        }
+
+        /* Basic styling from previous setup, adjusted for slider context */
+        .post-item:hover {
+            transform: none; /* Disable individual post hover transform for slider */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07); /* Reset box-shadow on hover */
+        }
+
+        .post-content-wrapper {
+            flex-grow: 1;
+        }
+        .post-image-container {
+            flex-shrink: 0;
+            width: 200px;
+            max-height: 150px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .post-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .post-item h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.8em;
+        }
+        .post-item h3 a {
+            text-decoration: none;
+            color: var(--highlight-color);
+            transition: color 0.3s ease;
+        }
+        .post-item h3 a:hover {
+            color: #E6A700;
+            text-decoration: underline;
+        }
+        .post-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .post-meta span {
+            margin-right: 15px;
+        }
+        .post-meta strong {
+            color: var(--dark-accent);
+        }
+        .post-content {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #444;
+        }
+        .post-content p {
+            margin-top: 15px;
+            text-align: right;
+        }
+        .post-content p a {
+            display: inline-block;
+            background-color: var(--button-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .post-content p a:hover {
+            background-color: var(--dark-accent);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .no-posts {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+            border: 2px dashed var(--primary-color);
+            border-radius: 8px;
+            font-style: italic;
+        }
+        .message.error {
+            color: #D8000C;
+            background-color: #FFEFEF;
+            border: 1px solid #FFDCDC;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Slider Navigation Buttons */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10; /* Ensure buttons are above the slider content */
+            pointer-events: none; /* Allow clicks to pass through initially */
+        }
+
+        .slider-nav button {
+            background-color: rgba(12, 59, 46, 0.7); /* Dark Forest Green with opacity */
+            color: white;
+            border: none;
+            padding: 15px 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            pointer-events: all; /* Re-enable clicks for buttons */
+        }
+        .slider-nav button:hover {
+            background-color: var(--dark-accent);
+        }
+        .slider-nav button:disabled {
+            background-color: rgba(12, 59, 46, 0.3);
+            cursor: not-allowed;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .post-item {
+                flex-direction: column; /* Stack items vertically on small screens */
+                align-items: center; /* Center items when stacked */
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+            .post-image-container {
+                width: 100%;
+                max-width: 250px; /* Smaller max-width for image on mobile */
+                margin-bottom: 15px;
+            }
+            .post-content-wrapper {
+                text-align: center;
+            }
+            .post-content p {
+                text-align: center;
+            }
+            .post-item h3 {
+                font-size: 1.5em; /* Smaller font size for title */
+            }
+            .slider-nav button {
+                padding: 10px 8px; /* Smaller buttons on mobile */
+                font-size: 1.2em;
+            }
+        }
+   

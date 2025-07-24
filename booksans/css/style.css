@@ -1,0 +1,675 @@
+/* ==== Root Colors ==== */
+:root {
+  --main-green: #6D9773;
+  --mustard-yellow: #BB8A52;
+  --bright-gold: #FFBA00;
+  --cream: #FDFDFD;
+  --light-grey: #f5f5f5;
+  --dark-text: #333;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ==== Base Reset ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cream);
+  color: var(--dark-text);
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s; /* Smooth transition for dark mode */
+}
+/* ==== Hero Section ==== */
+.hero-section {
+  height: 75vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.overlay {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  background-color: rgba(109, 151, 115, 0.6); 
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  /* font-size: 1.6rem; */
+  font-style: italic;
+  max-width: 600px;
+}
+/* ==== Intro Section */
+.intro {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.intro h1 {
+  /* font-size: 2.8rem; */
+  color: var(--main-green);
+}
+
+.intro p {
+  font-size: 1.1rem;
+  margin-top: 12px;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Rooms Section*/
+.section-title {
+  font-size: 2.5rem;
+  color: var(--main-green);
+  text-align: center;
+  margin: 60px 0 30px;
+}
+
+.room-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 40px 60px;
+}
+
+.room-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px var(--shadow);
+  overflow: hidden;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-card h3 {
+  color: var(--main-green);
+  margin: 15px;
+}
+
+.room-card p {
+  margin: 0 15px 15px;
+  color: #444;
+}
+
+.learn-btn {
+  background-color: var(--bright-gold); 
+  color: white;
+  margin: 0 15px 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.learn-btn:hover {
+  background-color: #e0a800; 
+}
+
+/*Room Detail Section*/
+.room-details {
+  padding: 60px 40px;
+  background-color: var(--light-grey);
+}
+
+.room-detail {
+  background-color: white;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border-left: 6px solid var(--main-green); 
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+.room-detail h3 {
+  margin-bottom: 10px;
+  color: var(--main-green); 
+}
+.room-detail p {
+  font-size: 1rem;
+  color: #555;
+}
+.book-btn {
+  margin-top: 20px;
+  background-color: var(--main-green); 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.book-btn:hover {
+  background-color: #4e7d5a; 
+}
+
+/*Booking Form Popup*/
+.booking-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.booking-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--dark-text);
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.booking-form button {
+  background-color: var(--bright-gold); 
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #e0a800; /* Default, will be overridden */
+}
+/*Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--light-grey);
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px var(--shadow);
+  font-size: 0.9rem;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.dark-mode-toggle label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/*  Dark Mode Styles  */
+body.dark {
+  background-color: #072C21;
+  color: #9FD3AF; 
+}
+
+body.dark .navbar {
+  background-color: #0b2d21;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+body.dark .navbar-brand,
+body.dark .navbar-nav li a {
+  color: #9FD3AF;
+}
+
+body.dark .navbar-nav li a:hover {
+  color: #FFCE4A;
+  border-bottom-color: #FFCE4A;
+}
+
+body.dark .hero-section,
+body.dark .room-details,
+body.dark .room-card,
+body.dark .booking-form {
+  background-color: #0b2d21;
+  color: #9FD3AF;
+}
+
+body.dark .room-card h3,
+body.dark .room-detail h3,
+body.dark .intro h1,
+body.dark .section-title {
+  color: #9FD3AF; 
+}
+
+body.dark .learn-btn,
+body.dark .book-btn,
+body.dark .booking-form button {
+  background-color: #FFCE4A; 
+  color: #072C21; 
+}
+
+body.dark .learn-btn:hover,
+body.dark .book-btn:hover,
+body.dark .booking-form button:hover {
+  background-color: #e5b93c; 
+}
+
+body.dark .overlay {
+  background-color: rgba(159, 211, 175, 0.6); 
+}
+
+body.dark .room-detail {
+  border-left-color: #9FD3AF; 
+}
+
+body.dark .booking-form input,
+body.dark .booking-form textarea {
+  background-color: #1a4a3b;
+  color: #f9f9f9;
+  border-color: #4e7d5a;
+}
+
+body.dark .footer {
+  background-color: #0b2d21;
+}
+
+/*  Dashboard Panel(Admin Interface)  */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  background-color: var(--cream);
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: var(--main-green);
+  margin-bottom: 40px;
+}
+
+.dashboard-section {
+  background: white;
+  border-left: 6px solid var(--main-green);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px var(--shadow);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.dashboard-section h3 {
+  font-size: 1.6rem;
+  color: var(--mustard-yellow);
+  margin-bottom: 20px;
+}
+
+.dashboard-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-section input[type="file"],
+.dashboard-section input[type="text"],
+.dashboard-section input[type="number"],
+.dashboard-section textarea,
+.dashboard-section select,
+.dashboard-section input[type="color"] {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%; 
+}
+
+.dashboard-section textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.dashboard-section button {
+  background-color: var(--main-green);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content; 
+}
+
+.dashboard-section button:hover {
+  background-color: #4e7d5a;
+}
+
+.dashboard-section .room-grid { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.dashboard-section .room-card { 
+  width: 250px;
+  background-color: var(--light-grey);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.dashboard-section .room-card img { /* Not used in dashboard.php, but kept for consistency */
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.dashboard-section .room-card h3 { /* Not used in dashboard.php, but kept for consistency */
+  margin: 10px;
+  color: var(--main-green);
+}
+
+.dashboard-section .room-card p { /* Not used in dashboard.php, but kept for consistency */
+  margin: 0 10px 10px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.dashboard-section label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styles for booking requests in dashboard */
+.dashboard-section .booking-item {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.dashboard-section .booking-item p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.dashboard-section .booking-item strong {
+    color: var(--main-green);
+}
+
+.dashboard-section .booking-item form {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dashboard-section .booking-item button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.dashboard-section .booking-item button[name="action"][value="confirm"] {
+    background-color: #28a745; /* Green for confirm */
+}
+.dashboard-section .booking-item button[name="action"][value="confirm"]:hover {
+    background-color: #218838;
+}
+
+.dashboard-section .booking-item button[name="action"][value="cancel"] {
+    background-color: #dc3545; /* Red for cancel */
+}
+.dashboard-section .booking-item button[name="action"][value="cancel"]:hover {
+    background-color: #c82333;
+}
+
+/* ===== Hotel Manager Login/Register ===== */
+.form-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: var(--main-green);
+  margin-bottom: 25px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-container button {
+  background-color: var(--main-green);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #4e7d5a;
+}
+
+.form-container p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form-container a {
+  color: var(--bright-gold);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* ===== Dark Mode Support for Login/Register ===== */
+body.dark .form-container {
+  background-color: #0f3b2b;
+  color: #9FD3AF;
+}
+
+body.dark .form-container input {
+  background-color: #1a4a3b;
+  color: white;
+  border: 1px solid #4e7d5a;
+}
+
+body.dark .form-container button {
+  background-color: #FFCE4A;
+  color: #072C21;
+}
+
+body.dark .form-container button:hover {
+  background-color: #e5b93c;
+}
+
+body.dark .form-container a {
+  color: #FFCE4A;
+}
+
+body.dark .dark-mode-toggle {
+  background-color: #1a4a3b;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Styles for browse.php hotel cards */
+.hotel-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 40px 60px;
+}
+
+.hotel-card {
+  width: 320px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hotel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.hotel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover img {
+  transform: scale(1.05);
+}
+
+.hotel-card h3 {
+  color: var(--main-green);
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+}
+
+.hotel-card p {
+  margin: 0 20px 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.visit-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background-color: var(--bright-gold);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.visit-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Dark mode for browse.php */
+body.dark .hotel-card {
+  background-color: #103429; /* Dark card background */
+  color: #f9f9f9; /* Light text */
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .hotel-card p {
+  color: #ccc;
+}
+
+body.dark .visit-btn {
+  background-color: #FFCE4A;
+  color: #072C21;
+}
+
+body.dark .visit-btn:hover {
+  background-color: #e5b93c;
+}
